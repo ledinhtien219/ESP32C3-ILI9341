@@ -59,7 +59,7 @@ Smart Clock 320×240 dành cho **DOIT ESP32 DevKit V1 (classic ESP32)**, màn h�
 
 - **Board:** `DOIT ESP32 DEVKIT V1`
 - **Flash size:** 4 MB
-- **Partition Scheme:** `Minimal SPIFFS (Large APPS with OTA)` / `min_spiffs`
+- **Partition:** dùng file `partitions.csv` đi kèm repo (2 OTA slot ~1.875 MB mỗi slot)
 - **Serial:** 115200 baud
 
 ### Thư viện
@@ -96,7 +96,9 @@ Các file font `ui_font_*.c` và `lv_conf.h` phải được giữ cùng project
 
 GitHub Actions build bằng target:
 
-`esp32:esp32:esp32doit-devkit-v1:PartitionScheme=min_spiffs`
+`esp32:esp32:esp32doit-devkit-v1`
+
+Repo có `partitions.csv` riêng cho flash 4 MB, gồm 2 app OTA slot khoảng 1.875 MB, 128 KB SPIFFS và 64 KB coredump. Cách này tránh phụ thuộc menu partition của từng phiên bản board package.
 
 Mỗi lần push thay đổi firmware lên `main`, workflow tạo artifact và GitHub Release chứa `firmware.bin`.
 
@@ -124,6 +126,7 @@ Trang HTTPS xin quyền GPS rồi chuyển tọa độ về endpoint `/gps-apply
 .
 ├── ESP32_ILI9341_AHT10_Pro.ino
 ├── lv_conf.h
+├── partitions.csv
 ├── gps.html
 ├── ui_font_*.c
 ├── docs/
@@ -139,7 +142,7 @@ Trang HTTPS xin quyền GPS rồi chuyển tọa độ về endpoint `/gps-apply
 - **Không thấy AHT10:** kiểm tra SDA 32 / SCL 33.
 - **Không vào Wi‑Fi:** xóa cấu hình cũ hoặc chờ AP `ESP32-SmartClock` xuất hiện.
 - **Không có thời tiết:** kiểm tra ESP32 đã có Internet và vị trí/tọa độ hợp lệ.
-- **OTA không đủ bộ nhớ:** dùng partition `min_spiffs` như workflow.
+- **OTA không đủ bộ nhớ:** đảm bảo `partitions.csv` nằm cùng sketch và không bị Arduino IDE bỏ qua.
 
 ## Release
 
