@@ -1,4 +1,4 @@
-name: Build ESP32 Firmware
+name: Build ESP32 DevKit V1 Firmware
 
 on:
   push:
@@ -56,7 +56,7 @@ jobs:
         run: |
           mkdir -p output
           arduino-cli compile \
-            --fqbn esp32:esp32:esp32:PartitionScheme=min_spiffs \
+            --fqbn esp32:esp32:esp32doit-devkit-v1:PartitionScheme=min_spiffs \
             --output-dir output \
             build-sketch/ESP32_ILI9341_AHT10_Pro
           cp output/ESP32_ILI9341_AHT10_Pro.ino.bin firmware.bin
@@ -69,7 +69,7 @@ jobs:
       - name: Lưu firmware build
         uses: actions/upload-artifact@v4
         with:
-          name: firmware
+          name: esp32-devkit-v1-firmware
           path: firmware.bin
 
       - name: Xác định phiên bản
@@ -90,6 +90,6 @@ jobs:
             gh release upload "$VERSION" firmware.bin --clobber
           else
             gh release create "$VERSION" firmware.bin \
-              --title "Smart Clock $VERSION" \
+              --title "ESP32 DevKit V1 Smart Clock $VERSION" \
               --generate-notes
           fi
