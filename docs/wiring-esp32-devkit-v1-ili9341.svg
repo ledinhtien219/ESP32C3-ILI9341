@@ -1,71 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
-  <defs>
-    <style>
-      .title{font:700 38px Arial,sans-serif;fill:#10243e}
-      .sub{font:500 20px Arial,sans-serif;fill:#4d6278}
-      .box{fill:#ffffff;stroke:#b8c7d9;stroke-width:3}
-      .head{font:700 26px Arial,sans-serif;fill:#10243e}
-      .pin{font:600 20px Arial,sans-serif;fill:#1e293b}
-      .note{font:500 17px Arial,sans-serif;fill:#52657a}
-      .wire{fill:none;stroke-width:7;stroke-linecap:round}
-      .tag{font:700 17px Arial,sans-serif;fill:#ffffff}
-    </style>
-  </defs>
-  <rect width="1400" height="820" fill="#f5f8fb"/>
-  <text x="700" y="58" text-anchor="middle" class="title">Sơ đồ nối dây chuẩn — ESP32 DevKit V1 + ILI9341 + AHT10</text>
-  <text x="700" y="92" text-anchor="middle" class="sub">Tất cả tín hiệu logic dùng 3.3 V</text>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f2f7fc"/></linearGradient>
+  <linearGradient id="pcb" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17212d"/><stop offset="1" stop-color="#0a1017"/></linearGradient>
+  <linearGradient id="tft" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dc2525"/><stop offset="1" stop-color="#a70e18"/></linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#086bb0"/><stop offset=".55" stop-color="#47a9df"/><stop offset=".56" stop-color="#1b6a60"/><stop offset="1" stop-color="#173d31"/></linearGradient>
+  <linearGradient id="weatherBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06162c"/><stop offset="1" stop-color="#0b3556"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0f2742" flood-opacity=".14"/></filter>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#16314e" flood-opacity=".16"/></filter>
+  <style>
+    .title{font:700 34px Arial,sans-serif;fill:#0b1d3a}.sub{font:500 17px Arial,sans-serif;fill:#385471}
+    .head{font:700 21px Arial,sans-serif;fill:#fff}.h2{font:700 21px Arial,sans-serif;fill:#0d3e73}
+    .lab{font:700 14px Arial,sans-serif;fill:#17263a}.small{font:500 13px Arial,sans-serif;fill:#455e78}.tiny{font:500 11px Arial,sans-serif;fill:#506981}
+    .pin{font:700 12px Arial,sans-serif;fill:#fff}.boardpin{font:700 11px Arial,sans-serif;fill:#1b2b3f}
+    .wire{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+</defs>
+<rect width="1400" height="820" fill="url(#bg)"/>
+<text x="700" y="43" text-anchor="middle" class="title">Sơ đồ nối dây chuẩn — ESP32 DevKit V1 + ILI9341 + AHT10</text>
+<rect x="555" y="55" width="290" height="29" rx="15" fill="#e3f2ff"/><text x="700" y="75" text-anchor="middle" class="sub">Tất cả tín hiệu logic dùng 3.3 V</text>
 
-  <rect x="80" y="150" rx="24" ry="24" width="430" height="560" class="box"/>
-  <text x="295" y="200" text-anchor="middle" class="head">DOIT ESP32 DevKit V1</text>
-
-  <g class="pin">
-    <text x="120" y="270">3V3</text><text x="420" y="270" text-anchor="end">GPIO27</text>
-    <text x="120" y="320">GND</text><text x="420" y="320" text-anchor="end">GPIO25</text>
-    <text x="120" y="370">GPIO13</text><text x="420" y="370" text-anchor="end">GPIO26</text>
-    <text x="120" y="420">GPIO14</text><text x="420" y="420" text-anchor="end">GPIO35</text>
-    <text x="120" y="500">GPIO32</text><text x="420" y="500" text-anchor="end">GPIO33</text>
+<g filter="url(#shadow)">
+  <rect x="55" y="112" width="330" height="452" rx="18" fill="#fff" stroke="#c8d7e6" stroke-width="2"/>
+  <rect x="85" y="142" width="240" height="385" rx="13" fill="url(#pcb)"/>
+  <rect x="86" y="95" width="250" height="34" rx="8" fill="#086bb5"/><text x="211" y="118" text-anchor="middle" class="head">DOIT ESP32 DevKit V1</text>
+  <rect x="135" y="171" width="140" height="148" rx="7" fill="#d6d1c2" stroke="#7a7b77" stroke-width="2"/>
+  <rect x="147" y="181" width="116" height="105" rx="4" fill="#c4c0b4"/>
+  <text x="205" y="225" text-anchor="middle" style="font:700 15px Arial;fill:#26313d">ESP-WROOM-32</text>
+  <path d="M170 250 q35-30 70 0 q-35-18-70 0" fill="none" stroke="#454d52" stroke-width="3"/>
+  <text x="205" y="277" text-anchor="middle" style="font:700 19px Arial;fill:#535a5e">CE</text>
+  <rect x="165" y="451" width="82" height="60" rx="5" fill="#cbd0d5"/><rect x="180" y="468" width="52" height="43" rx="3" fill="#69737d"/>
+  <rect x="104" y="458" width="33" height="20" rx="5" fill="#222"/><text x="120" y="472" text-anchor="middle" class="pin">EN</text>
+  <rect x="271" y="458" width="39" height="20" rx="5" fill="#222"/><text x="290" y="472" text-anchor="middle" class="pin">BOOT</text>
+  <g fill="#d4a72c"><circle cx="112" cy="155" r="6"/><circle cx="298" cy="155" r="6"/><circle cx="112" cy="511" r="6"/><circle cx="298" cy="511" r="6"/></g>
+  <g fill="#e9eef3" stroke="#c9d3dd"><rect x="64" y="160" width="45" height="341" rx="6"/><rect x="302" y="160" width="45" height="341" rx="6"/></g>
+  <g class="boardpin" text-anchor="middle">
+    <rect x="67" y="171" width="39" height="22" rx="5" fill="#ef3e42" stroke="none"/><text x="86" y="186" fill="#fff">3V3</text>
+    <text x="86" y="215">EN</text><text x="86" y="241">VP</text><text x="86" y="267">VN</text><text x="86" y="293">34</text><text x="86" y="319">35</text>
+    <rect x="67" y="327" width="39" height="21" rx="5" fill="#2484d8" stroke="none"/><text x="86" y="342" fill="#fff">32</text>
+    <rect x="67" y="353" width="39" height="21" rx="5" fill="#23a35a" stroke="none"/><text x="86" y="368" fill="#fff">33</text>
+    <text x="86" y="397">25</text><text x="86" y="423">26</text><text x="86" y="449">27</text><text x="86" y="475">14</text><text x="86" y="497">GND</text>
+    <text x="324" y="188">GND</text><text x="324" y="214">23</text><text x="324" y="240">22</text><text x="324" y="266">TX0</text><text x="324" y="292">RX0</text><text x="324" y="318">21</text><text x="324" y="344">19</text><text x="324" y="370">18</text><text x="324" y="396">5</text><text x="324" y="422">17</text><text x="324" y="448">16</text><text x="324" y="474">4</text><text x="324" y="496">0</text>
   </g>
+</g>
 
-  <rect x="890" y="140" rx="24" ry="24" width="420" height="420" class="box"/>
-  <text x="1100" y="190" text-anchor="middle" class="head">ILI9341 320×240 SPI</text>
-  <g class="pin">
-    <text x="940" y="255">VCC / LED</text>
-    <text x="940" y="300">GND</text>
-    <text x="940" y="345">CS</text>
-    <text x="940" y="390">RESET</text>
-    <text x="940" y="435">DC / RS</text>
-    <text x="940" y="480">MOSI / SDI</text>
-    <text x="940" y="525">SCK / CLK</text>
-    <text x="1190" y="525">MISO / SDO</text>
-  </g>
+<g filter="url(#shadow)">
+  <rect x="694" y="120" width="400" height="315" rx="16" fill="#fff" stroke="#c8d7e6" stroke-width="2"/>
+  <rect x="720" y="153" width="342" height="250" rx="8" fill="url(#tft)"/>
+  <rect x="750" y="174" width="272" height="204" rx="5" fill="#111827" stroke="#f6d35e" stroke-width="4"/>
+  <rect x="762" y="186" width="248" height="180" rx="2" fill="url(#screen)"/>
+  <path d="M762 285 L825 238 L874 278 L921 220 L1010 288 L1010 366 L762 366Z" fill="#24495a" opacity=".9"/>
+  <path d="M762 318 Q820 300 870 322 T1010 317 L1010 366 L762 366Z" fill="#155f67" opacity=".8"/>
+  <circle cx="978" cy="213" r="17" fill="#ffd75a"/><g fill="#fff" opacity=".9"><ellipse cx="824" cy="225" rx="37" ry="12"/><ellipse cx="852" cy="214" rx="28" ry="12"/></g>
+  <text x="777" y="330" style="font:700 22px Arial;fill:#fff">ILI9341</text><text x="777" y="353" style="font:700 15px Arial;fill:#fff">320 × 240 · SPI TFT</text>
+  <rect x="790" y="103" width="220" height="36" rx="9" fill="#096cb8"/><text x="900" y="128" text-anchor="middle" class="head">ILI9341 320×240 SPI</text>
+  <g fill="#f8cf3a" stroke="#713b11" stroke-width="2"><circle cx="735" cy="168" r="9"/><circle cx="1047" cy="168" r="9"/><circle cx="735" cy="389" r="9"/><circle cx="1047" cy="389" r="9"/></g>
+  <g class="pin"><circle cx="724" cy="202" r="6" fill="#ffd743"/><text x="739" y="207">VCC</text><circle cx="724" cy="228" r="6" fill="#ffd743"/><text x="739" y="233">GND</text><circle cx="724" cy="254" r="6" fill="#ffd743"/><text x="739" y="259">CS</text><circle cx="724" cy="280" r="6" fill="#ffd743"/><text x="739" y="285">RESET</text><circle cx="724" cy="306" r="6" fill="#ffd743"/><text x="739" y="311">DC / RS</text><circle cx="724" cy="332" r="6" fill="#ffd743"/><text x="739" y="337">MOSI</text><circle cx="724" cy="358" r="6" fill="#ffd743"/><text x="739" y="363">SCK</text><circle cx="724" cy="384" r="6" fill="#ffd743"/><text x="739" y="389">MISO</text></g>
+</g>
 
-  <rect x="930" y="620" rx="22" ry="22" width="340" height="145" class="box"/>
-  <text x="1100" y="662" text-anchor="middle" class="head">AHT10</text>
-  <g class="pin">
-    <text x="970" y="710">VCC → 3V3</text>
-    <text x="970" y="744">GND → GND</text>
-    <text x="1135" y="710">SDA → GPIO32</text>
-    <text x="1135" y="744">SCL → GPIO33</text>
-  </g>
+<path class="wire" stroke="#ef3340" d="M105 182 C420 182 480 184 715 202"/>
+<path class="wire" stroke="#202a33" d="M105 490 C410 490 480 228 715 228"/>
+<path class="wire" stroke="#9b51d0" d="M107 439 C410 439 505 254 715 254"/>
+<path class="wire" stroke="#ff8a1f" d="M107 387 C410 387 520 280 715 280"/>
+<path class="wire" stroke="#159b91" d="M107 413 C430 413 530 306 715 306"/>
+<path class="wire" stroke="#2b78d4" d="M324 370 C495 370 560 332 715 332"/>
+<path class="wire" stroke="#f1ad17" d="M107 465 C420 465 545 358 715 358"/>
+<path class="wire" stroke="#687684" d="M107 309 C450 309 555 384 715 384"/>
 
-  <path d="M150 255 C600 255 650 240 890 240" class="wire" stroke="#e63946"/>
-  <path d="M150 305 C600 305 650 290 890 290" class="wire" stroke="#263238"/>
-  <path d="M420 255 C650 255 735 335 890 335" class="wire" stroke="#8e44ad"/>
-  <path d="M420 305 C650 305 735 380 890 380" class="wire" stroke="#ff8c42"/>
-  <path d="M420 355 C650 355 735 425 890 425" class="wire" stroke="#2a9d8f"/>
-  <path d="M180 355 C560 355 700 470 890 470" class="wire" stroke="#1d7bd8"/>
-  <path d="M180 405 C560 405 700 515 890 515" class="wire" stroke="#f4b400"/>
-  <path d="M420 405 C670 405 900 575 1190 515" class="wire" stroke="#6c757d"/>
+<g class="pin" text-anchor="middle"><rect x="410" y="168" width="122" height="25" rx="12" fill="#ef3340"/><text x="471" y="185">3V3 → VCC / LED</text><rect x="430" y="207" width="98" height="25" rx="12" fill="#202a33"/><text x="479" y="224">GND → GND</text><rect x="450" y="239" width="112" height="25" rx="12" fill="#9b51d0"/><text x="506" y="256">GPIO27 → CS</text><rect x="472" y="268" width="125" height="25" rx="12" fill="#ff8a1f"/><text x="535" y="285">GPIO25 → RESET</text><rect x="475" y="297" width="130" height="25" rx="12" fill="#159b91"/><text x="540" y="314">GPIO26 → DC / RS</text><rect x="478" y="326" width="134" height="25" rx="12" fill="#2b78d4"/><text x="545" y="343">GPIO13 → MOSI</text><rect x="475" y="355" width="130" height="25" rx="12" fill="#f1ad17"/><text x="540" y="372">GPIO14 → SCK</text><rect x="472" y="384" width="132" height="25" rx="12" fill="#687684"/><text x="538" y="401">GPIO35 → MISO</text></g>
 
-  <g>
-    <rect x="610" y="226" width="120" height="32" rx="16" fill="#8e44ad"/><text x="670" y="248" text-anchor="middle" class="tag">GPIO27 → CS</text>
-    <rect x="610" y="278" width="136" height="32" rx="16" fill="#ff8c42"/><text x="678" y="300" text-anchor="middle" class="tag">GPIO25 → RST</text>
-    <rect x="610" y="330" width="132" height="32" rx="16" fill="#2a9d8f"/><text x="676" y="352" text-anchor="middle" class="tag">GPIO26 → DC</text>
-    <rect x="610" y="408" width="145" height="32" rx="16" fill="#1d7bd8"/><text x="682" y="430" text-anchor="middle" class="tag">GPIO13 → MOSI</text>
-    <rect x="610" y="458" width="140" height="32" rx="16" fill="#f4b400"/><text x="680" y="480" text-anchor="middle" class="tag">GPIO14 → SCK</text>
-    <rect x="610" y="510" width="145" height="32" rx="16" fill="#6c757d"/><text x="682" y="532" text-anchor="middle" class="tag">GPIO35 → MISO</text>
-  </g>
+<g filter="url(#soft)">
+  <rect x="790" y="454" width="240" height="125" rx="16" fill="#fff" stroke="#c8d7e6" stroke-width="2"/>
+  <rect x="823" y="482" width="180" height="80" rx="9" fill="#1267a8"/>
+  <rect x="904" y="500" width="36" height="36" rx="6" fill="#e7eaeb" stroke="#87939e"/>
+  <circle cx="914" cy="511" r="3"/><circle cx="929" cy="511" r="3"/><circle cx="914" cy="526" r="3"/><circle cx="929" cy="526" r="3"/>
+  <rect x="840" y="438" width="150" height="31" rx="8" fill="#096cb8"/><text x="915" y="460" text-anchor="middle" class="head">AHT10 (I²C)</text>
+  <g class="pin"><circle cx="833" cy="497" r="5" fill="#ffd743"/><text x="846" y="502">VCC</text><circle cx="833" cy="516" r="5" fill="#ffd743"/><text x="846" y="521">GND</text><circle cx="833" cy="535" r="5" fill="#ffd743"/><text x="846" y="540">SDA</text><circle cx="833" cy="554" r="5" fill="#ffd743"/><text x="846" y="559">SCL</text></g>
+</g>
+<path class="wire" stroke="#ef3340" d="M105 182 C450 182 540 497 828 497"/>
+<path class="wire" stroke="#202a33" d="M105 490 C480 490 600 516 828 516"/>
+<path class="wire" stroke="#2b78d4" d="M105 337 C450 337 580 535 828 535"/>
+<path class="wire" stroke="#20a55b" d="M105 363 C450 363 600 554 828 554"/>
 
-  <text x="80" y="775" class="note">Lưu ý: GPIO35 chỉ nhận tín hiệu (input-only), phù hợp cho MISO. Không cấp logic 5 V trực tiếp vào ESP32.</text>
+<g filter="url(#soft)"><rect x="1115" y="98" width="255" height="337" rx="16" fill="#fff" stroke="#bed7ed" stroke-width="2"/><text x="1242" y="130" text-anchor="middle" class="h2">Bảng nối dây chi tiết</text>
+<rect x="1131" y="145" width="223" height="29" rx="7" fill="#e8f3fd"/><text x="1143" y="165" class="lab">ESP32</text><text x="1276" y="165" class="lab">ILI9341</text>
+<g class="small"><text x="1143" y="196" fill="#e33">3V3</text><text x="1212" y="196">→</text><text x="1276" y="196">VCC / LED</text><text x="1143" y="226">GND</text><text x="1212" y="226">→</text><text x="1276" y="226">GND</text><text x="1143" y="256" fill="#9148c7">GPIO27</text><text x="1212" y="256">→</text><text x="1276" y="256">CS</text><text x="1143" y="286" fill="#f27d16">GPIO25</text><text x="1212" y="286">→</text><text x="1276" y="286">RESET</text><text x="1143" y="316" fill="#138b83">GPIO26</text><text x="1212" y="316">→</text><text x="1276" y="316">DC / RS</text><text x="1143" y="346" fill="#276fc5">GPIO13</text><text x="1212" y="346">→</text><text x="1276" y="346">MOSI / SDI</text><text x="1143" y="376" fill="#ce9100">GPIO14</text><text x="1212" y="376">→</text><text x="1276" y="376">SCK / CLK</text><text x="1143" y="406" fill="#65727f">GPIO35</text><text x="1212" y="406">→</text><text x="1276" y="406">MISO / SDO</text></g></g>
+
+<g filter="url(#soft)"><rect x="1115" y="452" width="255" height="132" rx="16" fill="#fff" stroke="#bed7ed" stroke-width="2"/><text x="1242" y="481" text-anchor="middle" class="h2">Kết nối AHT10</text><g class="small"><text x="1143" y="512" fill="#e33">3V3 → VCC</text><text x="1242" y="512">GND → GND</text><text x="1143" y="544" fill="#276fc5">GPIO32 → SDA</text><text x="1242" y="544" fill="#17934f">GPIO33 → SCL</text></g></g>
+
+<rect x="35" y="612" width="1330" height="170" rx="18" fill="#eef6fd" stroke="#d6e8f7"/>
+<text x="65" y="644" class="h2">▣  Giao diện màn hình</text>
+
+<g filter="url(#soft)"><rect x="310" y="628" width="465" height="135" rx="14" fill="#fff"/><circle cx="335" cy="650" r="15" fill="#287fe3"/><text x="335" y="656" text-anchor="middle" class="pin">1</text><text x="360" y="655" class="lab">Trang đồng hồ</text><text x="500" y="655" class="tiny">Giờ · ngày dương lịch · âm lịch</text><rect x="355" y="667" width="375" height="82" rx="7" fill="#050505"/>
+<g fill="#fff" opacity=".96"><rect x="395" y="680" width="78" height="48" rx="8"/><rect x="505" y="680" width="78" height="48" rx="8"/><rect x="615" y="680" width="78" height="48" rx="8"/></g><g style="font:700 37px Arial;fill:#111" text-anchor="middle"><text x="434" y="717">14</text><text x="544" y="717">28</text><text x="654" y="717">36</text></g><g style="font:700 26px Arial;fill:#fff"><text x="483" y="714">:</text><text x="593" y="714">:</text></g><text x="542" y="742" text-anchor="middle" style="font:500 11px Arial;fill:#fff">Thứ Bảy · 26/04/2025 · Âm lịch 29/03 Ất Tỵ</text></g>
+
+<g filter="url(#soft)"><rect x="795" y="628" width="535" height="135" rx="14" fill="#fff"/><circle cx="820" cy="650" r="15" fill="#287fe3"/><text x="820" y="656" text-anchor="middle" class="pin">2</text><text x="845" y="655" class="lab">Trang thời tiết</text><text x="970" y="655" class="tiny">Thông tin thời tiết từ Internet</text><rect x="835" y="667" width="455" height="82" rx="8" fill="url(#weatherBg)"/>
+<circle cx="885" cy="699" r="18" fill="#ffd34f"/><g stroke="#ffd34f" stroke-width="3"><path d="M885 674v-8M885 732v-8M860 699h-8M918 699h-8M867 681l-6-6M909 723l-6-6M903 681l6-6M861 723l6-6"/></g><ellipse cx="902" cy="716" rx="25" ry="13" fill="#e8f1ff"/><ellipse cx="887" cy="711" rx="17" ry="14" fill="#fff"/>
+<text x="940" y="690" style="font:700 12px Arial;fill:#d8e7f7">Hà Nội</text><text x="940" y="724" style="font:700 34px Arial;fill:#fff">28°C</text><text x="1030" y="724" style="font:500 11px Arial;fill:#e1edf8">Trời ít mây</text>
+<g fill="#123d61" stroke="#315b7e"><rect x="1110" y="676" width="78" height="29" rx="7"/><rect x="1197" y="676" width="78" height="29" rx="7"/><rect x="1110" y="711" width="78" height="29" rx="7"/><rect x="1197" y="711" width="78" height="29" rx="7"/></g><g style="font:500 9px Arial;fill:#d9e9f7" text-anchor="middle"><text x="1149" y="688">Cảm giác</text><text x="1149" y="699" font-weight="700">32°C</text><text x="1236" y="688">Độ ẩm</text><text x="1236" y="699" font-weight="700">68%</text><text x="1149" y="723">Gió</text><text x="1149" y="735" font-weight="700">12 km/h</text><text x="1236" y="723">Mưa</text><text x="1236" y="735" font-weight="700">0 mm</text></g></g>
+
+<rect x="55" y="790" width="1290" height="24" rx="12" fill="#dfeefa"/><text x="700" y="807" text-anchor="middle" class="tiny">Lưu ý: GPIO35 chỉ nhận tín hiệu (input-only), phù hợp cho MISO. Không cấp logic 5 V trực tiếp vào ESP32.</text>
 </svg>
