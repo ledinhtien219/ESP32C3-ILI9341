@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <defs>
+    <style>
+      .title{font:700 38px Arial,sans-serif;fill:#10243e}
+      .sub{font:500 20px Arial,sans-serif;fill:#4d6278}
+      .box{fill:#ffffff;stroke:#b8c7d9;stroke-width:3}
+      .head{font:700 26px Arial,sans-serif;fill:#10243e}
+      .pin{font:600 20px Arial,sans-serif;fill:#1e293b}
+      .note{font:500 17px Arial,sans-serif;fill:#52657a}
+      .wire{fill:none;stroke-width:7;stroke-linecap:round}
+      .tag{font:700 17px Arial,sans-serif;fill:#ffffff}
+    </style>
+  </defs>
+  <rect width="1400" height="820" fill="#f5f8fb"/>
+  <text x="700" y="58" text-anchor="middle" class="title">Sơ đồ nối dây chuẩn — ESP32 DevKit V1 + ILI9341 + AHT10</text>
+  <text x="700" y="92" text-anchor="middle" class="sub">Tất cả tín hiệu logic dùng 3.3 V</text>
+
+  <rect x="80" y="150" rx="24" ry="24" width="430" height="560" class="box"/>
+  <text x="295" y="200" text-anchor="middle" class="head">DOIT ESP32 DevKit V1</text>
+
+  <g class="pin">
+    <text x="120" y="270">3V3</text><text x="420" y="270" text-anchor="end">GPIO27</text>
+    <text x="120" y="320">GND</text><text x="420" y="320" text-anchor="end">GPIO25</text>
+    <text x="120" y="370">GPIO13</text><text x="420" y="370" text-anchor="end">GPIO26</text>
+    <text x="120" y="420">GPIO14</text><text x="420" y="420" text-anchor="end">GPIO35</text>
+    <text x="120" y="500">GPIO32</text><text x="420" y="500" text-anchor="end">GPIO33</text>
+  </g>
+
+  <rect x="890" y="140" rx="24" ry="24" width="420" height="420" class="box"/>
+  <text x="1100" y="190" text-anchor="middle" class="head">ILI9341 320×240 SPI</text>
+  <g class="pin">
+    <text x="940" y="255">VCC / LED</text>
+    <text x="940" y="300">GND</text>
+    <text x="940" y="345">CS</text>
+    <text x="940" y="390">RESET</text>
+    <text x="940" y="435">DC / RS</text>
+    <text x="940" y="480">MOSI / SDI</text>
+    <text x="940" y="525">SCK / CLK</text>
+    <text x="1190" y="525">MISO / SDO</text>
+  </g>
+
+  <rect x="930" y="620" rx="22" ry="22" width="340" height="145" class="box"/>
+  <text x="1100" y="662" text-anchor="middle" class="head">AHT10</text>
+  <g class="pin">
+    <text x="970" y="710">VCC → 3V3</text>
+    <text x="970" y="744">GND → GND</text>
+    <text x="1135" y="710">SDA → GPIO32</text>
+    <text x="1135" y="744">SCL → GPIO33</text>
+  </g>
+
+  <path d="M150 255 C600 255 650 240 890 240" class="wire" stroke="#e63946"/>
+  <path d="M150 305 C600 305 650 290 890 290" class="wire" stroke="#263238"/>
+  <path d="M420 255 C650 255 735 335 890 335" class="wire" stroke="#8e44ad"/>
+  <path d="M420 305 C650 305 735 380 890 380" class="wire" stroke="#ff8c42"/>
+  <path d="M420 355 C650 355 735 425 890 425" class="wire" stroke="#2a9d8f"/>
+  <path d="M180 355 C560 355 700 470 890 470" class="wire" stroke="#1d7bd8"/>
+  <path d="M180 405 C560 405 700 515 890 515" class="wire" stroke="#f4b400"/>
+  <path d="M420 405 C670 405 900 575 1190 515" class="wire" stroke="#6c757d"/>
+
+  <g>
+    <rect x="610" y="226" width="120" height="32" rx="16" fill="#8e44ad"/><text x="670" y="248" text-anchor="middle" class="tag">GPIO27 → CS</text>
+    <rect x="610" y="278" width="136" height="32" rx="16" fill="#ff8c42"/><text x="678" y="300" text-anchor="middle" class="tag">GPIO25 → RST</text>
+    <rect x="610" y="330" width="132" height="32" rx="16" fill="#2a9d8f"/><text x="676" y="352" text-anchor="middle" class="tag">GPIO26 → DC</text>
+    <rect x="610" y="408" width="145" height="32" rx="16" fill="#1d7bd8"/><text x="682" y="430" text-anchor="middle" class="tag">GPIO13 → MOSI</text>
+    <rect x="610" y="458" width="140" height="32" rx="16" fill="#f4b400"/><text x="680" y="480" text-anchor="middle" class="tag">GPIO14 → SCK</text>
+    <rect x="610" y="510" width="145" height="32" rx="16" fill="#6c757d"/><text x="682" y="532" text-anchor="middle" class="tag">GPIO35 → MISO</text>
+  </g>
+
+  <text x="80" y="775" class="note">Lưu ý: GPIO35 chỉ nhận tín hiệu (input-only), phù hợp cho MISO. Không cấp logic 5 V trực tiếp vào ESP32.</text>
+</svg>
