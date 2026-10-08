@@ -51,13 +51,12 @@ jobs:
           mkdir -p build-sketch/ESP32_ILI9341_AHT10_Pro
           cp ESP32_ILI9341_AHT10_Pro.ino build-sketch/ESP32_ILI9341_AHT10_Pro/
           cp ui_font_*.c build-sketch/ESP32_ILI9341_AHT10_Pro/
-          cp partitions.csv build-sketch/ESP32_ILI9341_AHT10_Pro/
 
       - name: Biên dịch firmware
         run: |
           mkdir -p output
           arduino-cli compile \
-            --fqbn esp32:esp32:esp32doit-devkit-v1 \
+            --fqbn esp32:esp32:esp32:PartitionScheme=min_spiffs \
             --output-dir output \
             build-sketch/ESP32_ILI9341_AHT10_Pro
           cp output/ESP32_ILI9341_AHT10_Pro.ino.bin firmware.bin
