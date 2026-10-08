@@ -11,7 +11,7 @@ Smart Clock 320×240 dành cho **DOIT ESP32 DevKit V1 (classic ESP32)**, màn h�
 ## Sơ đồ nối dây
 
 <p align="center">
-  <img src="docs/wiring-esp32-devkit-v1-ili9341.svg" alt="Sơ đồ nối dây ESP32 DevKit V1 với ILI9341 và AHT10" width="1000">
+  <img src="docs/wiring-esp32-devkit-v1-ili9341.svg" alt="Sơ đồ nối dây trực quan ESP32 DevKit V1 với ILI9341, AHT10 và giao diện màn hình" width="1100">
 </p>
 
 ### ILI9341 → ESP32 DevKit V1
@@ -50,7 +50,7 @@ Smart Clock 320×240 dành cho **DOIT ESP32 DevKit V1 (classic ESP32)**, màn h�
 - Nhiều trang TFT và tự động chuyển trang.
 - Web setting trên ESP32.
 - Quét Wi‑Fi từ giao diện web.
-- OTA bằng file `.bin` hoặc URL GitHub trực tiếp.
+- OTA bằng file `.bin`, URL GitHub hoặc **cập nhật bản mới nhất chỉ với 1 nút bấm**.
 - GitHub Actions tự build `firmware.bin` và tạo Release.
 
 ## Cấu hình phần mềm
@@ -108,9 +108,11 @@ Mỗi lần push thay đổi firmware lên `main`, workflow tạo artifact và G
 
 Trong web setting chọn firmware `.bin` và upload. ESP32 ghi firmware bằng `Update` rồi tự reboot.
 
-### Update từ GitHub
+### Cập nhật 1 chạm từ GitHub
 
-Trang setting cũng nhận URL HTTPS trỏ trực tiếp tới file `.bin` trên GitHub. Không tắt nguồn trong lúc cập nhật.
+Trong tab **Cập nhật firmware**, bấm **KIỂM TRA & CẬP NHẬT BẢN MỚI NHẤT**. ESP32 tự gọi GitHub Releases, tìm asset `firmware.bin`, tải firmware, ghi OTA và tự khởi động lại. Không cần máy tính và không cần copy link.
+
+Mục nâng cao vẫn cho phép dán URL HTTPS trực tiếp tới file `.bin` khi cần. **Không tắt nguồn trong lúc cập nhật.**
 
 ## GPS điện thoại
 
@@ -145,4 +147,4 @@ Trang HTTPS xin quyền GPS rồi chuyển tọa độ về endpoint `/gps-apply
 
 ## Release
 
-Firmware build tự động nằm trong mục **Releases** của repository dưới tên `firmware.bin`.
+Firmware build tự động nằm trong mục **Releases** của repository dưới tên `firmware.bin`. Bản có OTA 1 chạm bắt đầu từ **v0.1.14**.
